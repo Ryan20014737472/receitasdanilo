@@ -6,31 +6,31 @@
 }
 
 body{
-    background:#D94786;
+    background:#ffffff;
     color:#333;
 }
 
 header{
-    background:white;
+    background:#ffffff;
     text-align:center;
     padding:25px;
 }
 
 h1{
-    background: #d94786;
-    color: white;
-    display: inline-block;
-    padding: 15px 30px;
-    border-radius: 10px;
+    display:inline-block;
+    background:#d94786;
+    color:#ffffff;
+    padding:15px 30px;
+    border-radius:10px;
+    margin-bottom:20px;
 }
 
-
 nav{
-    margin-top:20px;
+    margin-top:10px;
 }
 
 nav a{
-    color:white;
+    color:#d94786;
     text-decoration:none;
     margin:0 15px;
     font-weight:bold;
@@ -58,13 +58,13 @@ button{
     border:none;
     border-radius:10px;
     background:#d94786;
-    color:white;
+    color:#ffffff;
     cursor:pointer;
     font-size:16px;
 }
 
 button:hover{
-    background:#d94786;
+    background:#c13b77;
 }
 
 .destaques{
@@ -77,7 +77,7 @@ button:hover{
 
 .card{
     width:280px;
-    background:white;
+    background:#ffffff;
     border-radius:15px;
     padding:25px;
     box-shadow:0 5px 15px rgba(0,0,0,.15);
@@ -90,7 +90,7 @@ button:hover{
 
 footer{
     background:#222;
-    color:white;
+    color:#ffffff;
     text-align:center;
     padding:20px;
     margin-top:50px;
