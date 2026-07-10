@@ -118,7 +118,16 @@ nav a:hover{
     text-shadow:2px 2px 8px rgba(0,0,0,.6);
 }
 .banner {
-    padding-left: 48px;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.banner h2 {
+    margin-bottom: 12px;
+}
+
+.banner p {
+    margin: 0;
 }
 .botao{
     display:inline-block;
