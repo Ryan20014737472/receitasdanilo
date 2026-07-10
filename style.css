@@ -25,7 +25,7 @@ header{
 
 
 h1{
-    background:#d94786;
+    background:#f01150;
     color:#ffffff;
     width:100%;
     padding:45px 10px;
@@ -42,7 +42,7 @@ nav{
 
 
 nav a{
-    color:#d94786;
+    color:#f01150;
     text-decoration:none;
     margin:0 20px;
     font-size:18px;
@@ -150,7 +150,7 @@ nav a:hover{
 .botao{
     display:inline-block;
 
-    background:#d94786;
+    background:#f01150;
 
     color:white;
 
@@ -193,7 +193,7 @@ nav a:hover{
 .pesquisa input{
     width:60%;
     padding:15px;
-    border:2px solid #d94786;
+    border:2px solid #f01150;
     border-radius:30px;
     font-size:16px;
 }
@@ -218,7 +218,7 @@ nav a:hover{
 
 
 .lista-categorias div{
-    background:#d94786;
+    background:#f01150;
     color:white;
     padding:20px 30px;
     border-radius:20px;
@@ -286,7 +286,7 @@ nav a:hover{
 .card a{
     display:inline-block;
     margin:20px;
-    background:#d94786;
+    background:#f01150;
     color:white;
     padding:12px 25px;
     border-radius:20px;
@@ -349,7 +349,7 @@ footer{
 }
 
 .seta:hover{
-    background:#d94786;
+    background:#f01150;
 }
 
 .miniaturas{
@@ -376,7 +376,7 @@ footer{
 
 .thumb.ativa{
     opacity:1;
-    border:3px solid #d94786;
+    border:3px solid #f01150;
 }
 form{
     max-width:700px;
@@ -387,13 +387,13 @@ form input,
 form textarea{
     width:100%;
     padding:15px;
-    border:2px solid #d94786;
+    border:2px solid #f01150;
     border-radius:10px;
     font-size:16px;
 }
 
 form button{
-    background:#d94786;
+    background:#f01150;
     color:white;
     padding:15px 30px;
     border:none;
