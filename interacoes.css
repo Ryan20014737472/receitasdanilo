@@ -1,0 +1,25 @@
+.botao-favorito {
+    display: inline-block;
+    margin: 0 20px 20px;
+    padding: 10px 18px;
+    border: 2px solid #f01150;
+    border-radius: 20px;
+    background: #ffffff;
+    color: #f01150;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.botao-favorito:hover,
+.botao-favorito.favoritado {
+    background: #f01150;
+    color: #ffffff;
+}
+
+.sem-resultados {
+    margin-top: -15px;
+    color: #666666;
+    font-size: 18px;
+}
