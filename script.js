@@ -1,35 +1,106 @@
 // Mensagem de boas-vindas
 console.log("Receitas Chefe Dan 👨‍🍳 carregado com sucesso!");
 
-
 // Botão "Ver Receitas"
-
 const botao = document.querySelector(".botao");
 
 if (botao) {
-
     botao.addEventListener("click", () => {
-
         console.log("Abrindo página de receitas...");
-
     });
-
 }
 
-
-// Barra de pesquisa
-
+// Pesquisa e favoritos das receitas
 const pesquisa = document.querySelector(".pesquisa input");
+const cards = Array.from(document.querySelectorAll(".card"));
+const listaDeCards = document.querySelector(".cards");
+const chaveFavoritos = "receitas-favoritas";
 
-if (pesquisa) {
+function normalizarTexto(texto) {
+    return texto
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .trim();
+}
+
+function lerFavoritos() {
+    try {
+        return JSON.parse(localStorage.getItem(chaveFavoritos)) || [];
+    } catch {
+        return [];
+    }
+}
+
+function salvarFavoritos(favoritos) {
+    localStorage.setItem(chaveFavoritos, JSON.stringify(favoritos));
+}
+
+function atualizarBotaoFavorito(botaoFavorito, favorito) {
+    botaoFavorito.classList.toggle("favoritado", favorito);
+    botaoFavorito.setAttribute("aria-pressed", favorito);
+    botaoFavorito.textContent = favorito ? "★ Favoritada" : "☆ Favoritar";
+}
+
+if (cards.length) {
+    const favoritos = lerFavoritos();
+
+    cards.forEach((card) => {
+        const linkDaReceita = card.querySelector("a[href]");
+        const identificador = linkDaReceita
+            ? linkDaReceita.getAttribute("href")
+            : card.querySelector("h3")?.textContent.trim();
+
+        if (!identificador) return;
+
+        const botaoFavorito = document.createElement("button");
+        botaoFavorito.type = "button";
+        botaoFavorito.className = "botao-favorito";
+
+        let favorito = favoritos.includes(identificador);
+        atualizarBotaoFavorito(botaoFavorito, favorito);
+
+        botaoFavorito.addEventListener("click", () => {
+            const favoritosAtuais = lerFavoritos();
+            favorito = !favoritosAtuais.includes(identificador);
+
+            const novosFavoritos = favorito
+                ? [...favoritosAtuais, identificador]
+                : favoritosAtuais.filter((item) => item !== identificador);
+
+            salvarFavoritos(novosFavoritos);
+            atualizarBotaoFavorito(botaoFavorito, favorito);
+        });
+
+        card.appendChild(botaoFavorito);
+    });
+}
+
+if (pesquisa && cards.length) {
+    const mensagemSemResultados = document.createElement("p");
+    mensagemSemResultados.className = "sem-resultados";
+    mensagemSemResultados.textContent = "Nenhuma receita encontrada.";
+    mensagemSemResultados.hidden = true;
+
+    if (listaDeCards) {
+        listaDeCards.insertAdjacentElement("afterend", mensagemSemResultados);
+    }
 
     pesquisa.addEventListener("input", () => {
+        const termo = normalizarTexto(pesquisa.value);
+        let quantidadeVisivel = 0;
 
-        console.log("Pesquisando:", pesquisa.value);
+        cards.forEach((card) => {
+            const encontrada = normalizarTexto(card.textContent).includes(termo);
+            card.hidden = !encontrada;
 
+            if (encontrada) quantidadeVisivel++;
+        });
+
+        mensagemSemResultados.hidden = quantidadeVisivel !== 0;
     });
-
 }
+
 const carrossel = document.querySelector(".carrossel");
 
 if(carrossel){
