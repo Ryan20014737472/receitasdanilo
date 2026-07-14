@@ -23,3 +23,20 @@
     color: #666666;
     font-size: 18px;
 }
+
+.favoritas {
+    padding: 20px;
+    text-align: center;
+}
+
+.favoritas h2 {
+    color: #f01150;
+}
+
+.cards-favoritas {
+    justify-content: center;
+}
+
+[hidden] {
+    display: none !important;
+}
