@@ -13,7 +13,7 @@ if (botao) {
 // Pesquisa e favoritos das receitas
 const pesquisa = document.querySelector(".pesquisa input");
 const cards = Array.from(document.querySelectorAll(".card"));
-const listaDeCards = document.querySelector(".cards");
+const listaDeCards = document.querySelector(".destaques .cards");
 const areaFavoritas = document.querySelector(".favoritas");
 const listaFavoritas = document.querySelector(".cards-favoritas");
 const chaveFavoritos = "receitas-favoritas";
