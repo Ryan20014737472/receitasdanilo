@@ -231,3 +231,30 @@ if(carrossel){
     });
 
 }
+
+
+// Anima elementos quando entram na tela
+const elementosAnimados = document.querySelectorAll(
+    ".banner, .pesquisa, .categorias, .destaques, .favoritas, .receita, form, footer, .card, .lista-categorias div"
+);
+
+if ("IntersectionObserver" in window) {
+    const observador = new IntersectionObserver((entradas, observer) => {
+        entradas.forEach((entrada) => {
+            if (!entrada.isIntersecting) return;
+
+            entrada.target.classList.add("visivel");
+            observer.unobserve(entrada.target);
+        });
+    }, { threshold: 0.12 });
+
+    elementosAnimados.forEach((elemento, indice) => {
+        elemento.classList.add("animar-revelacao");
+        elemento.style.transitionDelay = `${Math.min(indice % 4, 3) * 80}ms`;
+        observador.observe(elemento);
+    });
+} else {
+    elementosAnimados.forEach((elemento) => {
+        elemento.classList.add("visivel");
+    });
+}
